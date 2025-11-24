@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+/* App-specific small base tweaks */
+html,
+body,
+#root {
+  height: 100%;
+}
+
+/* Ensure default font-family aligns with index.html */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* small helper for fade-in animation used in App */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fade-in-up {
+  animation: fade-in-up 360ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.bg-radial-top {
+  /* Compose gradient stops from Tailwind's variables (from / via / to) */
+  --tw-gradient-stops: var(--tw-gradient-from),
+    var(--tw-gradient-via, var(--tw-gradient-to, rgba(0, 0, 0, 0)));
+  background-image: radial-gradient(ellipse at top, var(--tw-gradient-stops));
+}
